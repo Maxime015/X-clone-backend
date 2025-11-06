@@ -16,7 +16,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Clerk middleware doit être avant vos routes
 app.use(clerkMiddleware());
+
+// Vos autres middlewares
 app.use(arcjetMiddleware);
 
 app.get("/", (req, res) => res.send("Hello from server"));
